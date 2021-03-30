@@ -1,0 +1,173 @@
+.contacts {
+  .wrapper {
+    h2 {
+      @include h2-header;
+    }
+
+    > div {
+      grid-column: 1/5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-end;
+    }
+  }
+
+  &__media {
+    &__follow {
+      display: flex;
+      margin-bottom: vw(26);
+
+      a {
+        @include round(vw(100));
+        margin-right: vw(20);
+        background-color: $color-green;
+        transition: 0.3s;
+
+        svg {
+          cursor: pointer;
+          width: 60%;
+          height: 60%;
+          fill: $color-white;
+        }
+
+        &:hover {
+          background-color: $color-pink;
+        }
+      }
+    }
+
+    &__address {
+      p {
+        cursor: pointer;
+        font-size: vw(24);
+        font-family: "OpenSans", serif;
+        transition: 0.3s;
+
+        &:hover {
+          color: $color-pink;
+        }
+
+        span {
+          margin-right: vw(12);
+          font-family: "DroidSerif", serif;
+          font-weight: 700;
+          color: $color-pink;
+        }
+      }
+    }
+  }
+
+  &__application {
+    font-family: "OpenSans", serif;
+
+    p {
+      margin-left: vw(24);
+      opacity: 50%;
+      font-size: vw(14);
+      line-height: 3;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      input,
+      textarea {
+        width: 90%;
+        padding: vw(10) vw(10);
+        margin-bottom: vw(8);
+        font-family: "OpenSans", serif;
+        font-size: vw(18);
+        color: $color-white;
+        line-height: 1.5;
+        border: none;
+        background-color: $color-pink;
+
+        &::placeholder {
+          color: $color-beige;
+        }
+      }
+
+      textarea {
+        height: vw(200);
+        resize: none;
+      }
+
+      input[type="button"] {
+        cursor: pointer;
+        margin-bottom: 0;
+        border: vw(3) solid $color-pink;
+        background-color: transparent;
+        font-weight: 700;
+        color: $color-pink;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: $color-pink;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contacts {
+    .wrapper {
+      h2 {
+        @include h2-header-min;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: initial;
+      }
+    }
+
+    &__media {
+      margin-top: vmin(20);
+      margin-bottom: vmin(20);
+
+      &__follow {
+        margin-bottom: vmin(12);
+
+        div {
+          @include round(vmin(40));
+        }
+      }
+
+      &__address {
+        p {
+          font-size: vmin(12);
+        }
+      }
+    }
+
+    &__application {
+      p {
+        margin-left: 0;
+        font-size: vmin(8);
+      }
+
+      form {
+        input,
+        textarea {
+          width: 100%;
+          padding: vmin(6) vmin(6);
+          margin-bottom: vmin(2);
+          font-size: vmin(11);
+        }
+
+        textarea {
+          height: vmin(100);
+        }
+        input[type="button"] {
+          border: vmin(1) solid $color-pink;
+        }
+      }
+    }
+  }
+}

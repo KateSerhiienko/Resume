@@ -1,0 +1,150 @@
+.projects {
+  .wrapper {
+    h2 {
+      @include h2_header;
+    }
+
+    > div {
+      grid-column: 1/5;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    grid-gap: vw(30);
+    @include border-top;
+
+    &__gallery {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: vw(353.5);
+
+      > div {
+        img {
+          position: absolute;
+          top: 0;
+          left: vw(55);
+          width: 80%;
+          height: 100%;
+        }
+      }
+
+      .show {
+        z-index: 1;
+      }
+
+      svg {
+        position: absolute;
+        width: vw(40);
+        height: vw(40);
+        fill: $color-white;
+        filter: drop-shadow(vw(2) vw(2) vw(2) $color-black);
+        opacity: 0.15;
+        transition: 0.3s;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .active:hover {
+        filter: drop-shadow(vw(2) vw(2) vw(1) $color-black);
+        opacity: 0.6;
+        cursor: pointer;
+      }
+    }
+
+    &__description {
+      > div {
+        @include round;
+        background-color: $color-blue;
+        color: $color-white;
+
+        h3 {
+          font-size: vw(20);
+          font-weight: 400;
+        }
+      }
+
+      > h3 {
+        @include border-top(vw(30), 0, vw(30));
+        font-size: vw(28);
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      p {
+        font-family: "OpenSans", sans-serif;
+        font-size: vw(16);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects {
+    .wrapper {
+      h2 {
+        @include h2-header-min;
+      }
+    }
+
+    &__item {
+      @include border-top-min;
+      grid-gap: vmin(15);
+      display: flex;
+      flex-direction: column;
+
+      &__gallery {
+        width: 100%;
+        height: vmin(198.5);
+        > div {
+          img {
+            width: 100%;
+            left: 0;
+          }
+        }
+
+        svg {
+          width: vmin(25);
+          height: vmin(25);
+          fill: $color-white;
+          opacity: 0.4;
+          z-index: 2;
+        }
+
+        .active:hover {
+          fill: $color-beige;
+          opacity: 0.7;
+        }
+      }
+
+      &__description {
+        > div {
+          @include round-min;
+
+          h3 {
+            font-size: vmin(11);
+          }
+        }
+
+        > h3 {
+          @include border-top-min(vmin(20), 0, vmin(20));
+          font-size: vmin(15);
+        }
+
+        p {
+          font-size: vmin(8);
+        }
+      }
+    }
+  }
+}

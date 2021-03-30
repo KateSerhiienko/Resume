@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+<div class="container">
+@@include("_header.html")
+<main class="projects">
+    <div class="wrapper">
+        <h2>My projects</h2>
+        <div>
+            <div class="projects__item">
+                <div class="projects__item__gallery">
+                    <svg class="prev">
+                        <use xlink:href="svg/sprite.svg#svg-prev"></use>
+                    </svg>
+                    <div>
+                        <img class="show" src="img/project_1_1.jpg" alt="Project Promomix">
+                        <img src="img/project_1_2.jpg" alt="Project Promomix">
+                        <img src="img/project_1_3.jpg" alt="Project Promomix">
+                        <img src="img/project_1_4.jpg" alt="Project Promomix">
+                    </div>
+                    <svg class="next active">
+                        <use xlink:href="svg/sprite.svg#svg-next"></use>
+                    </svg>
+                </div>
+                <div class="projects__item__description">
+                    <div>
+                        <h3>Project | 01</h3>
+                    </div>
+                    <h3>Promomix</h3>
+                    <p>The project was made based on the Figma layout. Grid and Flex markup were used.</p>
+                </div>
+            </div>
+            <div class="projects__item">
+                <div class="projects__item__gallery">
+                    <svg class="prev">
+                        <use xlink:href="svg/sprite.svg#svg-prev"></use>
+                    </svg>
+                    <div>
+                        <img class="show" src="img/project_2_1.png" alt="Project Beauty">
+                        <img src="img/project_2_2.png" alt="Project Beauty">
+                    </div>
+                    <svg class="next active">
+                        <use xlink:href="svg/sprite.svg#svg-next"></use>
+                    </svg>
+                </div>
+                <div class="projects__item__description">
+                    <div>
+                        <h3>Project | 02</h3>
+                    </div>
+                    <h3>Beauty</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@@include("_footer.html")
+</div>
+
+<script src="js/script.min.js"></script>
+</body>
+
+</html>

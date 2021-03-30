@@ -1,0 +1,107 @@
+@function vw($value, $base: 1440) {
+  @return $value / $base * 100vw;
+}
+
+@function vmin($value, $base: 320) {
+  @return $value / $base * 100vw;
+}
+
+@mixin round($width-height: vw(140)) {
+  width: $width-height;
+  height: $width-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+@mixin round-min($width-height: vmin(76)) {
+  width: $width-height;
+  height: $width-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+@mixin h2-header {
+  grid-column: 1/5;
+  text-transform: uppercase;
+  font-size: vw(62);
+  font-weight: 700;
+}
+
+@mixin h2-header-min {
+  text-transform: uppercase;
+  font-size: vmin(30);
+  font-weight: 700;
+}
+
+@mixin border-top(
+  $padding-top: vw(50),
+  $padding-bottom: vw(80),
+  $margin-top: vw(0)
+) {
+  border-top: vw(1) solid $color-black;
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  margin-top: $margin-top;
+}
+
+@mixin border-top-min(
+  $padding-top: vmin(30),
+  $padding-bottom: vmin(50),
+  $margin-top: vmin(0)
+) {
+  border-top: vmin(1) solid $color-black;
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  margin-top: $margin-top;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  position: relative;
+  background-color: $color-beige;
+  font-family: "DroidSerif", serif;
+  font-size: vw(18);
+  color: $color-black;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: vw(980);
+  margin: 0 auto;
+  padding: vw(80) vw(30);
+  display: grid;
+  grid-template-columns: 4fr 2fr 2fr 4fr;
+  grid-gap: vw(30);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    font-size: vmin(10);
+  }
+
+  .wrapper {
+    max-width: 100%;
+    width: vmin(280);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: vmin(15);
+  }
+}

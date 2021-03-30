@@ -1,0 +1,253 @@
+.resume {
+  .wrapper {
+    align-items: flex-start;
+
+    h2 {
+      @include h2-header;
+    }
+  }
+
+  &__info {
+    grid-column: 1/4;
+
+    > div {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-gap: vw(30);
+      @include border-top();
+
+      p,
+      li {
+        font-family: "OpenSans", serif;
+      }
+
+      dt {
+        width: 34%;
+        display: inline-block;
+        font-family: "OpenSans", serif;
+        font-size: vw(16);
+        opacity: 50%;
+      }
+
+      dd {
+        width: 64%;
+        display: inline-block;
+        margin-bottom: vw(10);
+      }
+    }
+
+    &__round {
+      @include round;
+      justify-content: flex-start;
+      padding-left: vw(12);
+      border-radius: 50%;
+      background-color: $color-blue;
+      color: $color-white;
+    }
+
+    &__item {
+      margin-bottom: vw(40);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-size: vw(20);
+        font-weight: 700;
+        line-height: 1.5;
+
+        span {
+          color: $color-pink;
+        }
+      }
+
+      p {
+        opacity: 50%;
+        margin-bottom: vw(16);
+        font-size: vw(16);
+      }
+
+      ul {
+        margin-left: vw(30);
+
+        li {
+          position: relative;
+          font-size: vw(17);
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: vw(-12);
+            top: vw(9);
+            width: vw(5);
+            height: vw(5);
+            border-radius: 50%;
+            background-color: $color-pink;
+          }
+        }
+      }
+    }
+  }
+
+  &__skills {
+    width: 76%;
+    justify-self: end;
+
+    > div {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      margin-bottom: vw(100);
+    }
+
+    &__round {
+      justify-self: center;
+      @include round(vw(46));
+      background-color: $color-green;
+
+      svg {
+        width: 60%;
+        height: 60%;
+        fill: $color-white;
+      }
+    }
+
+    h3 {
+      justify-self: end;
+      font-size: vw(24);
+    }
+
+    ul {
+      grid-column: 1/3;
+      @include border-top(vw(30), 0, vw(30));
+      padding-left: vw(32);
+
+      li {
+        position: relative;
+        font-family: "OpenSans", serif;
+        font-size: vw(20);
+        line-height: 2;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: vw(-18);
+          top: vw(16);
+          width: vw(7);
+          height: vw(7);
+          border-radius: 50%;
+          background-color: $color-green;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .resume {
+    .wrapper {
+      h2 {
+        @include h2-header-min;
+      }
+    }
+
+    &__info {
+      grid-column: 1/5;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        @include border-top-min();
+
+        > p {
+          margin-left: vmin(30);
+          font-size: vmin(8);
+        }
+
+        dt {
+          font-size: vmin(8);
+        }
+
+        dd {
+          font-size: vmin(10);
+          margin-bottom: vmin(5);
+        }
+      }
+
+      &__round {
+        @include round(vmin(90));
+        justify-content: flex-start;
+        padding-left: vmin(8);
+        margin-top: vmin(14);
+        margin-bottom: vmin(8);
+        font-size: vmin(12);
+      }
+
+      &__item {
+        margin-bottom: vmin(40);
+        margin-left: vmin(30);
+
+        h3 {
+          font-size: vmin(12);
+        }
+
+        p {
+          font-size: vmin(8);
+        }
+
+        ul {
+          margin-left: vmin(12);
+          margin-top: vmin(10);
+
+          li {
+            font-size: vmin(9);
+            line-height: 1.5;
+
+            &::before {
+              left: vmin(-8);
+              top: vmin(6);
+              width: vmin(2);
+              height: vmin(2);
+            }
+          }
+        }
+      }
+    }
+
+    &__skills {
+      grid-column: 1/5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: vmin(30);
+      align-items: start;
+      width: 100%;
+      margin-top: vmin(50);
+
+      &__round {
+        @include round-min(vmin(45));
+      }
+
+      h3 {
+        justify-self: center;
+        font-size: vmin(10);
+      }
+
+      ul {
+        padding-left: vmin(18);
+        @include border-top-min(vmin(20), 0, vmin(20));
+
+        li {
+          font-size: vmin(10);
+
+          &::before {
+            left: vmin(-10);
+            top: vmin(8);
+            width: vmin(3);
+            height: vmin(3);
+          }
+        }
+      }
+    }
+  }
+}
